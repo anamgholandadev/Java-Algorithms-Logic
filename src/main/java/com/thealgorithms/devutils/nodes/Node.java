@@ -12,30 +12,29 @@ package com.thealgorithms.devutils.nodes;
  */
 public abstract class Node<E> {
 
-    /**
-     * Generic type data stored in the Node.
-     */
-    private E data;
+    //@ spec_public 
+    private /*@ nullable @*/ E data;
 
-    /**
-     * Empty constructor.
-     */
+    //@ public normal_behavior
+    //@ pure
     public Node() {
     }
 
-    /**
-     * Initializes the Nodes' data.
-     *
-     * @param data Value to which data will be initialized.
-     */
-    public Node(E data) {
+
+    //@ ensures this.data == data;
+    //@ pure
+    public Node(/*@ nullable @*/ E data) {
         this.data = data;
     }
 
+    //@ ensures \result == data;
+    //@ pure
     public E getData() {
         return data;
     }
 
+    //@ assigns this.data;
+    //@ ensures this.data == data;
     public void setData(E data) {
         this.data = data;
     }
