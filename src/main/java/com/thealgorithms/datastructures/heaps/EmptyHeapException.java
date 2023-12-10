@@ -7,6 +7,8 @@ package com.thealgorithms.datastructures.heaps;
 @SuppressWarnings("serial")
 public class EmptyHeapException extends Exception {
 
+    //@ public normal_behavior
+    //@ ensures this.getMessage() == message;
     public EmptyHeapException(String message) {
         super(message);
     }
