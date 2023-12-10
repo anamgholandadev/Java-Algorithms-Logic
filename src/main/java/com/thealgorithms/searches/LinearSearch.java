@@ -1,8 +1,10 @@
 package com.thealgorithms.searches;
 
 // import com.thealgorithms.devutils.searches.SearchAlgorithm;
-import java.util.Random;
-import java.util.stream.Stream;
+// import java.util.Random;
+// import java.util.stream.Stream;
+
+import com.thealgorithms.devutils.searches.SearchAlgorithm;
 
 /**
  * Linear search is the easiest search algorithm It works with sorted and
@@ -18,7 +20,7 @@ import java.util.stream.Stream;
  * @see BinarySearch
  * @see SearchAlgorithm
  */
-public class LinearSearch  {
+public class LinearSearch implements SearchAlgorithm {
 
     /**
      * Generic Linear search method
@@ -27,21 +29,9 @@ public class LinearSearch  {
      * @param value Key being searched for
      * @return Location of the key
      */
-    // @ requires array.length <= Integer.MAX_VALUE;
-    // @ requires (\forall int x; 0 <= x < array.length; \typeof(value) <: \typeof(array[x]));
-    // @ requires !(\forall int x; 0 <= x < array.length; array[x].compareTo(value) != 0);
-    // @ ensures \result >= 0 && array[\result].compareTo(value) == 0;
-    // @ also
-    // @ requires array.length <= Integer.MAX_VALUE;
-    // @ requires (\forall int x; 0 <= x < array.length; \typeof(value) <: \typeof(array[x]));
-    // @ requires (\forall int x; 0 <=x < array.length; array[x].compareTo(value) != 0);
-    // @ ensures \result == -1;
     
-    //@ requires array.length <= Integer.MAX_VALUE;
-    //@ requires (\forall int x; 0 <= x < array.length; \typeof(value) <: \typeof(array[x]));
-    //@ ensures (!(\forall int x; 0 <= x < array.length; array[x].compareTo(value) != 0)) ==> array[\result].compareTo(value) == 0;
-    //@ ensures (\forall int x; 0 <=x < array.length; array[x].compareTo(value) != 0) ==> \result == -1;
-    //@ pure
+    // specification inherited;
+    @Override
     public <T extends Comparable<T>> int find(/*@ non_null @*/ T /*@ non_null @*/[] array, /*@ non_null @*/ T value) {
 
         //@ loop_writes \nothing;
@@ -57,20 +47,4 @@ public class LinearSearch  {
         }
         return -1;
     }
-
-    // public static void main(String[] args) {
-    //     // just generate data
-    //     Random r = new Random();
-    //     int size = 200;
-    //     int maxElement = 100;
-    //     Integer[] integers = Stream.generate(() -> r.nextInt(maxElement)).limit(size).toArray(Integer[] ::new);
-
-    //     // the element that should be found
-    //     Integer shouldBeFound = integers[r.nextInt(size - 1)];
-
-    //     LinearSearch search = new LinearSearch();
-    //     int atIndex = search.find(integers, shouldBeFound);
-
-    //     System.out.printf("Should be found: %d. Found %d at index %d. An array length %d%n", shouldBeFound, integers[atIndex], atIndex, size);
-    // }
 }
