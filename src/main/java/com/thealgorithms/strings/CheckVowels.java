@@ -11,6 +11,8 @@ import java.util.Set;
  */
 public class CheckVowels {
 
+    //@ public invariant VOWELS != null;
+    //@ public invariant (\forall char c; VOWELS.contains(c) <==> (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'));
     private static final Set<Character> VOWELS = new HashSet<>(Arrays.asList('a', 'e', 'i', 'o', 'u'));
 
     /**
