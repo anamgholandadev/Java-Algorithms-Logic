@@ -12,11 +12,14 @@ public class SimpleNode<E> extends Node<E> {
     /**
      * Reference to the next Node.
      */
-    private SimpleNode<E> nextNode;
+    //@ spec_public 
+    private /*@ nullable @*/ SimpleNode<E> nextNode;
 
     /**
      * Empty contructor.
      */
+    // @ public normal_behavior
+    // @ pure
     public SimpleNode() {
         super();
     }
@@ -27,6 +30,9 @@ public class SimpleNode<E> extends Node<E> {
      * @param data Value to which data will be initialized.
      * @see Node#Node(Object)
      */
+
+    // @ public normal_behavior
+    // @ pure
     public SimpleNode(E data) {
         super(data);
     }
@@ -37,6 +43,10 @@ public class SimpleNode<E> extends Node<E> {
      * @param data Value to which data will be initialized.
      * @param nextNode Value to which the next node reference will be set.
      */
+
+    // @ public normal_behavior
+    // @ ensures this.getNextNode() == nextNode; 
+    // @ pure
     public SimpleNode(E data, SimpleNode<E> nextNode) {
         super(data);
         this.nextNode = nextNode;
@@ -45,14 +55,20 @@ public class SimpleNode<E> extends Node<E> {
     /**
      * @return True if there is a next node, otherwise false.
      */
+    // @ public normal_behavior
+    // @ ensures \result == (nextNode != null);
     public boolean hasNext() {
         return (nextNode != null);
     }
 
-    public SimpleNode<E> getNextNode() {
+    // @ public normal_behavior
+    // @ ensures \result == nextNode;
+    public /*@ nullable @*/ SimpleNode<E> getNextNode() {
         return nextNode;
     }
 
+    // @ public normal_behavior
+    // @ ensures this.nextNode == nextNode;
     public void setNextNode(SimpleNode<E> nextNode) {
         this.nextNode = nextNode;
     }
