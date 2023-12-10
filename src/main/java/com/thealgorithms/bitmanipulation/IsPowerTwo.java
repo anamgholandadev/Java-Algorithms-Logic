@@ -6,6 +6,9 @@ package com.thealgorithms.bitmanipulation;
  */
 
 public class IsPowerTwo {
+
+    //@ requires Integer.MIN_VALUE < number && number <= Integer.MAX_VALUE;
+    //@ ensures \result == (number > 0 && ((number - 1) | number) == (2 * number - 1));
     public static boolean isPowerTwo(int number) {
         if (number <= 0) {
             return false;
