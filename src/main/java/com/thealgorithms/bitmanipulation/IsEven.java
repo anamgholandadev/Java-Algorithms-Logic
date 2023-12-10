@@ -6,6 +6,8 @@ package com.thealgorithms.bitmanipulation;
  */
 
 public class IsEven {
+    //@ requires Integer.MIN_VALUE <= number && number <= Integer.MAX_VALUE;
+    //@ ensures \result == ((number % 2) == 0);
     public static boolean isEven(int number) {
         return (number & 1) == 0;
     }
