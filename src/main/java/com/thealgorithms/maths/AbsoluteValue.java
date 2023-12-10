@@ -8,7 +8,7 @@ public class AbsoluteValue {
      * @param number The number to be transformed
      * @return The absolute value of the {@code number}
      */
-    //@ requires Integer.MIN_VALUE < number && number < Integer.MAX_VALUE;
+    //@ requires Integer.MIN_VALUE < number && number <= Integer.MAX_VALUE;
     //@ ensures (\result == number) || (\result == -number);
     public static int getAbsValue(int number) {
         return number < 0 ? -number : number;
