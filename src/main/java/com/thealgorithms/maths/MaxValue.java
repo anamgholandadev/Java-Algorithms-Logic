@@ -12,6 +12,8 @@ public final class MaxValue {
      * @param b another argument.
      * @return the larger of {@code a} and {@code b}.
      */
+
+    //@ ensures \result >= a && \result >= b;
     public static int max(int a, int b) {
         return a >= b ? a : b;
     }
