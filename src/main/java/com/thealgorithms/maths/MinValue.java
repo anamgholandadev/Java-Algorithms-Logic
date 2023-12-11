@@ -12,6 +12,7 @@ public final class MinValue {
      * @param b another argument.
      * @return the smaller of {@code a} and {@code b}.
      */
+    //@ ensures \result <= a && \result <= b;
     public static int min(int a, int b) {
         return a <= b ? a : b;
     }
