@@ -9,7 +9,7 @@ public class CharactersSame {
      * {@code false}
      */
     
-    //@ requires s.length() < Integer.MAX_VALUE - 2;
+    //@ requires s.length() <= Integer.MAX_VALUE;
     //@ ensures ((\forall int x; 0 <= x < s.length(); s.charAt(x) == s.charAt(0) ) <==> \result);
     public static boolean isAllCharactersSame(String s) {
 

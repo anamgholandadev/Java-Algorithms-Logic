@@ -48,7 +48,6 @@ public class HammingDistance {
         //@ assert counter == 0;
 
         //@ maintaining 0 <= i <= s1.length();
-        //@ maintaining counter < Integer.MAX_VALUE;
         //@ loop_writes counter, g_different_arr[1..s1.length()];
         //@ maintaining \forall int k; 1 <= k <= i;
         //@                 s1.charAt(k-1) != s2.charAt(k-1) ==> g_different_arr[k] == g_different_arr[k-1] + 1;
@@ -59,7 +58,6 @@ public class HammingDistance {
         //@ decreases s1.length() - i;
         for (int i = 0; i < stringLength; i++) {
             if (s1.charAt(i) != s2.charAt(i)) {
-                // @ assume 0 <= counter+1 < Integer.MAX_VALUE;
                 counter++;
                 //@ set g_different_arr[i+1] = g_different_arr[i] + 1;
             } else{
