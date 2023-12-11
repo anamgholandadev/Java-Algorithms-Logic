@@ -11,12 +11,25 @@ public final class FindMax {
      * @exception IllegalArgumentException input array is empty
      * @return the maximum value stored in the input array
      */
+    
+    //@   public normal_behavior
+    //@     requires 0 < array.length <= Integer.MAX_VALUE;
+    //@     ensures \forall int k; 0 <= k < array.length; \result >= array[k];
+    //@ also
+    //@   public exceptional_behavior
+    //@     requires array.length == 0;
+    //@     signals_only IllegalArgumentException;
     public static int findMax(final int[] array) {
         int n = array.length;
         if (n == 0) {
             throw new IllegalArgumentException("Array must be non-empty.");
         }
         int max = array[0];
+        //@ assert max == array[0];
+
+        //@ maintaining 1 <= i <= n;
+        //@ loop_writes max;
+        //@ maintaining \forall int k; 0 <= k < i; max >= array[k];
         for (int i = 1; i < n; i++) {
             if (array[i] > max) {
                 max = array[i];
